@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Hello Node</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqery/3.2.1/jquery.min.js"></script>
+    <script src="https://meet.jit.si/external_api.js"></script>
+    <style>
+      .button {
+        background-color: blue;
+        border-radius: 5px;
+        color: white;
+        padding: 0.5em;
+        text-decoration: none;
+      }
+    </style>
+    <script>
+      function jitMeet() {
+        const domain = "https://meet.jit.si/amalitech";
+        const options = {
+          roomName: "Joe Meet",
+          width: "100%",
+          height: "100%",
+          configOverwrite: { startWithAudioMuted: true },
+          interfaceConfigOverwrite: {
+            DISABLE_DOMINANT_SPEAKER_INDICATOR: true,
+          },
+          userInfo: {
+            email: "email@jitsiexamplemail.com",
+            displayName: "John Doe",
+          },
+          parentNode: document.querySelector("#meet"),
+        };
+        const api = new JitsiMeetExternalAPI(domain, options);
+
+        var myButton = document.getElementById("button");
+        myButton.href = domain
+
+      }
+
+      $(document).ready(function () {
+      
+      });
+    </script>
+  </head>
+  <body>
+    <div id="meet" style="height: 100vh;display: none;"></div>
+
+    <a id="button"  target="_blank" class="button js-button" onclick="jitMeet()" role="button">Go to Meet</a>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+      integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
